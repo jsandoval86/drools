@@ -1,0 +1,8 @@
+1.  Si cuenta es de tipo ahorros y realiza un flujo de caja de tipo credito
+	Debe aparecer restriccion. cod = "RN-001"
+   
+2.  Si cuenta es de tipo ahorros y realiza un flujo de caja de tipo debito,
+	permitir flujo y hacer balance. cod = "RN-002" 
+
+3.	Si cuenta es de tipo ahorros y balance < 100000, mostrar una alerta.
+	

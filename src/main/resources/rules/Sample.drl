@@ -1,0 +1,22 @@
+
+import dominio.Cuenta;
+import dominio.FlujoCaja;
+import dominio.excepciones.NegocioExcepcion;
+ 
+
+rule "RN-001"
+	when
+		cuenta : Cuenta( tipo == Cuenta.AHORROS ) 
+		FlujoCaja( cuentaNumero == cuenta.cuentaNumero , tipo == FlujoCaja.CREDITO )
+	then
+		throw new NegocioExcepcion(FlujoCaja.MSG);
+end
+	
+rule "RN-002"
+	when
+		cuenta: Cuenta( tipo == Cuenta.AHORROS )
+		fcaja: FlujoCaja( cuentaNumero == cuenta.cuentaNumero, tipo == FlujoCaja.DEBITO )
+	then
+		cuenta.setBalance((cuenta.getBalance() - fcaja.getMonto()));
+end
+		
